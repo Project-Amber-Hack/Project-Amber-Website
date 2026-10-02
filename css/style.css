@@ -416,3 +416,105 @@ footer {
     position: relative;
 }
 
+/* --- Extra Layout Variables for Code Repos and Specifications --- */
+.repo-viewport, .consoles-viewport, .donate-viewport {
+    padding: 140px 8% 80px 8%;
+    min-height: 85vh;
+}
+
+.repo-container {
+    background: var(--glass-card);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(16px);
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.repo-header-bar {
+    background: #111116;
+    padding: 15px 25px;
+    border-bottom: 1px solid var(--glass-border);
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.branch-indicator {
+    color: var(--neon-amber);
+    font-weight: 700;
+}
+
+.commit-counter {
+    color: var(--text-muted);
+}
+
+.repo-file-list {
+    padding: 10px 0;
+}
+
+.file-row {
+    padding: 14px 25px;
+    border-bottom: 1px solid rgba(255,255,255,0.02);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.file-row:hover {
+    background: rgba(255,255,255,0.02);
+}
+
+.file-icon {
+    margin-right: 15px;
+    font-size: 16px;
+}
+
+.file-desc {
+    margin-left: auto;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+/* --- Responsive Layout Specs Table --- */
+.spec-table-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--glass-card);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 14.5px;
+}
+
+.spec-table th, .spec-table td {
+    padding: 18px 25px;
+}
+
+.spec-table th {
+    background: #111116;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.spec-table td {
+    border-bottom: 1px solid rgba(255,255,255,0.02);
+}
+
+.spec-table tr:last-child td {
+    border-bottom: none;
+}
