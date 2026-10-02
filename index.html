@@ -7,19 +7,26 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Advanced Dynamic Starfield Canvas Particles Back tier -->
     <canvas id="canvas-particles"></canvas>
 
     <header class="navbar">
         <div class="logo-wrapper">
-            <img src="gemini-image-2_make_me_a_logo_for_my_xbox_360_game_store_for_jailbroken_consoles_called_Project-0 (1).jpg" alt="Project Amber Logo" class="brand-logo">
+            <!-- Fixed matching image reference targeting your exact filename -->
+            <img src="gemini-image-2_make_me_a_logo_for_my_xbox_360_game_store_for_jailbroken_consoles_called_Project-0%20(1).jpg" alt="Project Amber Logo" class="brand-logo">
             <div class="logo-text">PROJECT<span>AMBER</span></div>
         </div>
-        <nav>
-            <a href="#home" class="nav-link active">Core</a>
-            <a href="#matrix" class="nav-link">Matrix</a>
-            <a href="#changelog" class="nav-link">Changelog</a>
-            <a href="#terminal" class="nav-link">Console</a>
+        <!-- Mobile Responsive Hamburger Menu Trigger -->
+        <button class="menu-toggle" aria-label="Toggle Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav class="nav-menu">
+            <a href="index.html" class="nav-link active">Core</a>
+            <a href="apps.html" class="nav-link">Matrix</a>
+            <a href="repo.html" class="nav-link">Repository</a>
+            <a href="consoles.html" class="nav-link">Consoles</a>
+            <a href="donate.html" class="nav-link">Donate</a>
         </nav>
     </header>
 
@@ -27,88 +34,11 @@
         <div class="glow-sphere"></div>
         <div class="hero-container">
             <div class="badge-animated"><span>ENVIRONMENT LAYER // v1.0.0 ACTIVE</span></div>
-            <h1 class="glitch-title" data-text="CONSOLE INFRASTRUCTURE">CONSOLE INFRASTRUCTURE</h1>
+            <h1 class="glitch-title">CONSOLE INFRASTRUCTURE</h1>
             <p class="hero-subtitle">An ultra-premium, hardware-accelerated app distribution matrix engineered directly for legacy architectures and jailbroken console platforms.</p>
             <div class="action-row">
-                <a href="#matrix" class="btn-cyber">Explore Ecosystem</a>
+                <a href="apps.html" class="btn-cyber">Explore Ecosystem</a>
                 <a href="https://github.com" target="_blank" class="btn-cyber-outline">Source Repository</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="matrix" class="matrix-viewport">
-        <h2 class="section-header">Hardware Deployment Matrix</h2>
-        <div class="matrix-grid">
-            <div class="matrix-card live-node">
-                <div class="node-pulse"></div>
-                <div class="card-icon">⚡</div>
-                <h3>Xbox 360</h3>
-                <span class="pill pill-live">LIVE SYSTEM</span>
-                <p class="card-desc">Fully optimized PowerPC compiler engine active. Automated compilation, cryptographic signing, and .XEX packing paths deployed.</p>
-                <div class="path-indicator">ROOT:\Content\0000000000000000\</div>
-            </div>
-            
-            <div class="matrix-card pending-node">
-                <div class="card-icon">🌀</div>
-                <h3>PlayStation 3</h3>
-                <span class="pill pill-pending">COMING SOON</span>
-                <p class="card-desc">Mapping cell broadband compiler target arrays. Researching secure binary alignment frameworks for standard .PKG structures.</p>
-                <div class="path-indicator">SYS:\dev_hdd0\game\</div>
-            </div>
-
-            <div class="matrix-card pending-node">
-                <div class="card-icon">🛡️</div>
-                <h3>PlayStation 4</h3>
-                <span class="pill pill-pending">COMING SOON</span>
-                <p class="card-desc">Developing automated Orbis system dynamic-link libraries and runtime kernel payload injection structures.</p>
-                <div class="path-indicator">SYS:\data\app\</div>
-            </div>
-
-            <div class="matrix-card pending-node">
-                <div class="card-icon">🔮</div>
-                <h3>PlayStation 5</h3>
-                <span class="pill pill-pending">COMING SOON</span>
-                <p class="card-desc">Analyzing hypervisor execution constraints and evaluating sandbox separation layers for homebrew code layers.</p>
-                <div class="path-indicator">SYS:\sandbox\mnt\</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="changelog" class="changelog-viewport">
-        <h2 class="section-header">System Changelog</h2>
-        <div class="timeline-container">
-            <div class="timeline-block item-reveal">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <span class="timeline-date">October 2026</span>
-                    <h3>Multi-Threaded Video Engine & Storage Rules Deployed</h3>
-                    <p>Wrote the production multithreaded MP4 background renderer. Fully optimized memory allocations for 720p HDTV console layers. Implemented strict Games on Demand (GoD) partition directory mapping pipelines.</p>
-                </div>
-            </div>
-            <div class="timeline-block item-reveal">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                    <span class="timeline-date">September 2026</span>
-                    <h3>Cloud Automation Pipeline Complete</h3>
-                    <p>Designed cloud automation build pipelines using GitHub Actions wrappers to deploy cross-compiled ELF structures into retail signed executables smoothly.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="terminal" class="terminal-viewport">
-        <div class="terminal-box">
-            <div class="terminal-header">
-                <div class="dot red"></div>
-                <div class="dot yellow"></div>
-                <div class="dot green"></div>
-                <span class="terminal-title">amber_kernel@h3xdev:~</span>
-            </div>
-            <div class="terminal-body">
-                <p class="log-line text-amber">[SYSTEM INJECT] Initializing framework handshake bindings...</p>
-                <p class="log-line">[SYSTEM INJECT] Mapping Hdd:\Content\0000000000000000\ storage partitions...</p>
-                <p class="log-line text-green">[SUCCESS] PowerPC Xenon hardware mapping confirmed active.</p>
-                <p class="log-line command-entry">H3Xdev:~$ <span class="typed-text"></span><span class="cursor">|</span></p>
             </div>
         </div>
     </section>
@@ -120,4 +50,3 @@
     <script src="js/main.js"></script>
 </body>
 </html>
-
