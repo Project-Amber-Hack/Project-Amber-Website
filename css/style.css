@@ -1,11 +1,11 @@
 :root {
-    --bg-black: #050508;
-    --neon-amber: #ff9900;
-    --neon-amber-glow: rgba(255, 153, 0, 0.25);
-    --glass-card: rgba(13, 13, 18, 0.45);
-    --glass-border: rgba(255, 255, 255, 0.04);
-    --text-white: #f0f0f5;
-    --text-muted: #80808c;
+    --bg-black: #050300; /* Shifted to ultra-dark amber-black base block */
+    --neon-amber: #ffaa00; /* Saturated, heavy-pigment custom gold amber */
+    --neon-amber-glow: rgba(255, 170, 0, 0.4);
+    --glass-card: rgba(25, 15, 0, 0.4); /* Glassmorphism cards tinted amber */
+    --glass-border: rgba(255, 170, 0, 0.12);
+    --text-white: #fffdfa;
+    --text-muted: #bda280; /* Text accents muted down to an amber-cream shade */
     --matrix-green: #39ff14;
 }
 
@@ -25,13 +25,44 @@ body {
     width: 100%;
 }
 
+/* --- Hyper-Amber Video Background Architecture --- */
+.video-bg-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+    overflow: hidden;
+    background-color: var(--bg-black);
+}
+
+.video-bg-element {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.amber-tint-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Heavy digital overlay forcing any video code underneath to turn bright amber */
+    background: linear-gradient(135deg, rgba(255, 120, 0, 0.3) 0%, rgba(5, 3, 0, 0.8) 80%);
+    mix-blend-mode: color-burn; /* Melds the video colors into dark vibrant amber tracks */
+    z-index: 1;
+}
+
 #canvas-particles {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    z-index: 1;
+    z-index: 2;
     pointer-events: none;
 }
 
@@ -41,14 +72,15 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 5%;
-    background: rgba(5, 5, 8, 0.75);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(10, 5, 0, 0.65);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
     border-bottom: 1px solid var(--glass-border);
+    box-shadow: 0 4px 30px rgba(255, 170, 0, 0.03);
 }
 
 .logo-wrapper {
@@ -70,10 +102,12 @@ body {
     font-size: 18px;
     font-weight: 800;
     letter-spacing: 1.5px;
+    color: var(--text-white);
 }
 
 .logo-text span {
     color: var(--neon-amber);
+    text-shadow: 0 0 12px var(--neon-amber-glow);
 }
 
 .nav-menu {
@@ -89,14 +123,14 @@ nav a {
     margin-left: 22px;
     letter-spacing: 1px;
     text-transform: uppercase;
-    transition: color 0.3s;
+    transition: color 0.3s, text-shadow 0.3s;
 }
 
 nav a:hover, nav a.active {
-    color: var(--text-white);
+    color: var(--neon-amber);
+    text-shadow: 0 0 10px var(--neon-amber-glow);
 }
 
-/* Mobile Toggle Hidden by Default */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -109,7 +143,7 @@ nav a:hover, nav a.active {
 .menu-toggle .bar {
     width: 25px;
     height: 2px;
-    background-color: var(--text-white);
+    background-color: var(--neon-amber);
     transition: all 0.3s;
 }
 
@@ -121,8 +155,19 @@ nav a:hover, nav a.active {
     align-items: center;
     justify-content: center;
     position: relative;
-    z-index: 2;
+    z-index: 3;
     padding: 120px 24px 60px 24px;
+}
+
+.glow-sphere {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 130, 0, 0.12) 0%, rgba(0,0,0,0) 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
 }
 
 .hero-container {
@@ -131,12 +176,27 @@ nav a:hover, nav a.active {
     max-width: 800px;
 }
 
+.badge-animated {
+    display: inline-block;
+    background: rgba(255, 150, 0, 0.08);
+    border: 1px solid var(--neon-amber);
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--neon-amber);
+    margin-bottom: 25px;
+    box-shadow: 0 0 15px rgba(255, 170, 0, 0.15);
+}
+
 .glitch-title {
-    font-size: calc(2rem + 2.5vw); /* Fluid typography responsive sizing */
+    font-size: calc(2.2rem + 2.5vw);
     font-weight: 900;
     line-height: 1.1;
     margin-bottom: 20px;
     color: var(--text-white);
+    text-shadow: 0 0 20px rgba(255, 130, 0, 0.2);
 }
 
 .hero-subtitle {
@@ -150,7 +210,7 @@ nav a:hover, nav a.active {
 .action-row {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Wraps clean on small phone displays */
+    flex-wrap: wrap;
     gap: 15px;
 }
 
@@ -163,17 +223,28 @@ nav a:hover, nav a.active {
     text-decoration: none;
     display: inline-block;
     text-align: center;
+    transition: all 0.3s;
 }
 
 .btn-cyber {
     background: var(--neon-amber);
-    color: #050508;
-    box-shadow: 0 4px 15px rgba(255, 153, 0, 0.2);
+    color: #050300;
+    box-shadow: 0 4px 20px rgba(255, 170, 0, 0.4);
+}
+
+.btn-cyber:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(255, 170, 0, 0.6);
 }
 
 .btn-cyber-outline {
     color: var(--text-white);
-    border: 1px solid var(--glass-border);
+    border: 1px solid var(--neon-amber);
+    background: rgba(255, 170, 0, 0.03);
+}
+
+.btn-cyber-outline:hover {
+    background: rgba(255, 170, 0, 0.1);
 }
 
 /* --- Multi-Page Shared Structural Grid Viewports --- */
@@ -181,7 +252,7 @@ nav a:hover, nav a.active {
     padding: 140px 5% 80px 5%;
     min-height: 85vh;
     position: relative;
-    z-index: 2;
+    z-index: 3;
 }
 
 .section-header {
@@ -189,11 +260,13 @@ nav a:hover, nav a.active {
     font-weight: 800;
     text-align: center;
     margin-bottom: 50px;
+    color: var(--text-white);
+    text-shadow: 0 0 15px rgba(255, 170, 0, 0.2);
 }
 
 .matrix-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adaptive column configurations */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
     width: 100%;
     max-width: 1100px;
@@ -203,11 +276,17 @@ nav a:hover, nav a.active {
 .matrix-card {
     background: var(--glass-card);
     border: 1px solid var(--glass-border);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-radius: 12px;
     padding: 30px 24px;
     text-align: left;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.matrix-card:hover {
+    border-color: var(--neon-amber);
+    box-shadow: 0 10px 35px rgba(255, 170, 0, 0.15);
 }
 
 .pill {
@@ -223,49 +302,29 @@ nav a:hover, nav a.active {
 .pill-pending { background: rgba(255, 255, 255, 0.03); color: var(--text-muted); border: 1px solid rgba(255, 255, 255, 0.06); }
 
 .card-desc { color: var(--text-muted); font-size: 13.5px; line-height: 1.5; margin-bottom: 20px; }
-.path-indicator { font-family: monospace; font-size: 11px; color: rgba(255, 255, 255, 0.3); background: rgba(0,0,0,0.2); padding: 6px 12px; border-radius: 4px; }
+.path-indicator { font-family: monospace; font-size: 11px; color: var(--neon-amber); background: rgba(0,0,0,0.4); padding: 6px 12px; border-radius: 4px; border-left: 2px solid var(--neon-amber); }
 .download-btn { display: block; margin-top: 20px; width: 100%; }
 
-/* --- 📱 MOBILE BREAKPOINT QUERIES (Sized for iPhone/Android Screens) --- */
+/* --- 📱 MOBILE BREAKPOINT QUERIES --- */
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: flex; /* Reveal mobile menu trigger */
-        z-index: 1001;
-    }
-
+    .menu-toggle { display: flex; z-index: 1001; }
     .nav-menu {
         position: fixed;
         top: 0;
-        right: -100%; /* Hidden offscreen by default */
+        right: -100%;
         width: 75%;
         height: 100vh;
-        background: #09090e;
+        background: #0d0700;
         border-left: 1px solid var(--glass-border);
         flex-direction: column;
         justify-content: center;
         gap: 30px;
         transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
-
-    .nav-menu.active {
-        right: 0; /* Smooth slide out toggle drawer */
-    }
-
-    nav a {
-        font-size: 16px;
-        margin-left: 0;
-    }
-
-    .action-row {
-        flex-direction: column;
-        width: 100%;
-        max-width: 280px;
-        margin: 0 auto;
-    }
-
-    .btn-cyber, .btn-cyber-outline {
-        width: 100%;
-    }
+    .nav-menu.active { right: 0; }
+    nav a { font-size: 16px; margin-left: 0; }
+    .action-row { flex-direction: column; width: 100%; max-width: 280px; margin: 0 auto; }
+    .btn-cyber, .btn-cyber-outline { width: 100%; }
 }
 
 footer {
@@ -274,6 +333,7 @@ footer {
     border-top: 1px solid var(--glass-border);
     color: var(--text-muted);
     font-size: 12px;
-    z-index: 2;
+    z-index: 3;
     position: relative;
+    background: rgba(5, 3, 0, 0.8);
 }
